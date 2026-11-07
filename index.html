@@ -1,0 +1,1139 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#04080D">
+  <meta name="description" content="MyShieldLabs is an early-stage personal safety company. Discover our purpose and HerSafeWalk, a personal safety wearable currently in development.">
+  <meta property="og:title" content="MyShieldLabs — Redefining the future of Personal Safety.">
+  <meta property="og:description" content="Thoughtful personal safety, designed around people.">
+  <title>MyShieldLabs | Redefining the future of Personal Safety.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  color-scheme: dark;
+  /* Official MyShieldLabs 12-colour palette */
+  --obsidian:#04080D;
+  --midnight-navy:#0D1B2A;
+  --brand-navy:#041E42;
+  --deep-steel:#1B375C;
+  --deep-atlantic:#274E83;
+  --signal-blue:#004B87;
+  --slate-blue:#415A77;
+  --core-blue:#3365AA;
+  --misty-steel:#778DA9;
+  --bright-blue:#487EC8;
+  --sky-blue:#6A9BD1;
+  --ice-white:#F0F4F8;
+
+  --page:var(--obsidian);
+  --page-alt:var(--brand-navy);
+  --surface:var(--midnight-navy);
+  --surface-strong:var(--deep-steel);
+  --text:var(--ice-white);
+  --muted:var(--misty-steel);
+  --line:var(--deep-steel);
+  --accent:var(--bright-blue);
+  --accent-strong:var(--core-blue);
+  --accent-soft:var(--sky-blue);
+  --header:var(--obsidian);
+  --button-text:var(--ice-white);
+  --shadow:0 18px 45px #04080D55;
+}
+html[data-theme="light"] {
+  color-scheme: light;
+  --page:var(--ice-white);
+  --page-alt:var(--ice-white);
+  --surface:var(--ice-white);
+  --surface-strong:var(--misty-steel);
+  --text:var(--obsidian);
+  --muted:var(--slate-blue);
+  --line:var(--misty-steel);
+  --accent:var(--core-blue);
+  --accent-strong:var(--signal-blue);
+  --accent-soft:var(--deep-atlantic);
+  --header:var(--ice-white);
+  --button-text:var(--ice-white);
+  --shadow:0 16px 38px #04080D18;
+}
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; scroll-padding-top:92px; }
+body {
+  margin:0;
+  background:var(--page);
+  color:var(--text);
+  font-family:"DM Sans",sans-serif;
+  line-height:1.6;
+  transition:background-color .3s ease,color .3s ease;
+}
+a { color:inherit; text-decoration:none; }
+button { font:inherit; }
+img { display:block; max-width:100%; }
+.container { width:min(1160px,calc(100% - 48px)); margin:0 auto; }
+.skip-link {
+  position:absolute;left:-999px;top:8px;z-index:100;
+  background:var(--ice-white);color:var(--obsidian);padding:10px 14px;
+}
+.skip-link:focus { left:10px; }
+.topline { height:4px; background:var(--accent-strong); }
+.site-header {
+  position:sticky;top:0;z-index:50;
+  background:var(--header);
+  border-bottom:1px solid var(--line);
+  transition:background-color .3s,border-color .3s;
+}
+.nav {
+  min-height:82px;
+  display:flex;align-items:center;justify-content:space-between;gap:28px;
+}
+.brand { display:inline-flex;align-items:center;flex:0 0 auto; }
+.brand img { width:218px;height:auto; }
+.brand .logo-light { display:block; }
+.brand .logo-dark { display:none; }
+html[data-theme="light"] .brand .logo-light { display:none; }
+html[data-theme="light"] .brand .logo-dark { display:block; }
+.nav-links { display:flex;align-items:center;gap:27px;color:var(--muted);font-size:12px;font-weight:700; }
+.nav-links a { position:relative;padding:12px 0;transition:color .2s; }
+.nav-links a::after {
+  content:"";position:absolute;left:0;bottom:5px;width:0;height:2px;
+  background:var(--accent);transition:width .22s ease;
+}
+.nav-links a:hover { color:var(--text); }
+.nav-links a:hover::after { width:100%; }
+.nav-tools { display:flex;gap:9px;align-items:center; }
+.theme-toggle,.menu-toggle {
+  height:42px;min-width:42px;display:inline-flex;align-items:center;justify-content:center;
+  border:1px solid var(--line);background:transparent;color:var(--text);
+  cursor:pointer;border-radius:50%;transition:background .2s,border-color .2s,transform .2s;
+}
+.theme-toggle:hover,.menu-toggle:hover { background:var(--surface);border-color:var(--accent);transform:translateY(-1px); }
+.theme-toggle svg { width:18px;height:18px; }
+.menu-toggle { display:none;border-radius:10px;font-size:18px; }
+.mobile-nav { display:none;padding:5px 0 18px; }
+.mobile-nav a { display:block;padding:12px 2px;color:var(--muted);border-top:1px solid var(--line);font-size:13px; }
+.mobile-nav a:hover { color:var(--text); }
+.button {
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  min-height:48px;padding:0 20px;border:1px solid var(--accent-strong);
+  background:var(--accent-strong);color:var(--button-text);
+  font-size:12px;font-weight:800;letter-spacing:.2px;
+  transition:transform .2s,background .2s,border-color .2s;
+}
+.button:hover { transform:translateY(-2px);background:var(--bright-blue);border-color:var(--bright-blue); }
+.button-outline { background:transparent;color:var(--text);border-color:var(--line); }
+.button-outline:hover { background:var(--surface);border-color:var(--accent); }
+.hero { padding:112px 0 110px;overflow:hidden; }
+.hero-grid { display:grid;grid-template-columns:1.12fr .88fr;gap:60px;align-items:center; }
+.kicker {
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:10px;letter-spacing:2px;text-transform:uppercase;
+  color:var(--accent-soft);font-weight:800;
+}
+.kicker::before { content:"";width:24px;height:2px;background:var(--accent); }
+.hero h1 {
+  font:800 clamp(46px,6vw,78px)/1.02 Manrope,sans-serif;
+  letter-spacing:-3.8px;max-width:730px;margin:23px 0 22px;
+}
+.hero h1 .accent { color:var(--accent-soft); }
+.hero-copy { max-width:600px;color:var(--muted);font-size:16px;line-height:1.9; }
+.hero-actions { display:flex;flex-wrap:wrap;gap:12px;margin-top:32px; }
+.hero-note { margin-top:25px;color:var(--muted);font-size:11px;letter-spacing:.4px; }
+.hero-note span { color:var(--accent-soft);padding-right:7px; }
+.hero-art {
+  min-height:410px;position:relative;display:flex;align-items:center;justify-content:center;
+  border-left:1px solid var(--line);
+}
+.art-index {
+  position:absolute;top:20px;right:12px;color:var(--muted);
+  font:700 10px Manrope;letter-spacing:2px;
+}
+.art-ring {
+  width:300px;height:300px;border:1px solid var(--deep-steel);
+  border-radius:50%;position:absolute;
+}
+.art-ring::before,.art-ring::after {
+  content:"";position:absolute;border:1px solid var(--deep-steel);border-radius:50%;
+}
+.art-ring::before { inset:22px; }
+.art-ring::after { inset:55px;border-color:var(--slate-blue); }
+.art-center {
+  position:relative;width:176px;height:176px;border-radius:50%;
+  background:var(--surface);border:1px solid var(--slate-blue);
+  display:grid;place-items:center;box-shadow:var(--shadow);
+  animation:gentle-float 6s ease-in-out infinite;
+}
+.art-center::before {
+  content:"";position:absolute;inset:12px;border:1px solid var(--deep-steel);border-radius:50%;
+}
+.art-monogram {
+  display:grid;place-items:center;width:67px;height:67px;
+  border-radius:19px;background:var(--accent-strong);color:var(--ice-white);
+  font:800 20px Manrope;
+}
+.art-caption {
+  position:absolute;bottom:16px;left:50%;transform:translateX(-50%);
+  color:var(--muted);font-size:10px;letter-spacing:1.5px;white-space:nowrap;text-transform:uppercase;
+}
+.section { padding:92px 0; }
+.section-alt { background:var(--page-alt); }
+.section-head { max-width:720px;margin-bottom:42px; }
+.section-no { color:var(--accent-soft);font:800 10px Manrope;letter-spacing:2px;text-transform:uppercase; }
+.section-head h2 {
+  margin:14px 0 15px;font:800 clamp(31px,4.2vw,48px)/1.12 Manrope;
+  letter-spacing:-1.8px;
+}
+.section-head p { color:var(--muted);font-size:14px;line-height:1.9;margin:0;max-width:680px; }
+.about-layout { display:grid;grid-template-columns:.82fr 1.18fr;gap:70px;align-items:start; }
+.about-lead { font:700 24px/1.5 Manrope;letter-spacing:-.5px;margin:0; }
+.about-text { color:var(--muted);font-size:14px;line-height:1.95;margin:0; }
+.value-row { display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);margin-top:44px; }
+.value-item { padding:20px 18px 0 0;border-right:1px solid var(--line); }
+.value-item:last-child { border-right:0;padding-right:0; }
+.value-item b { display:block;font:700 14px Manrope;margin-bottom:7px; }
+.value-item span { color:var(--muted);font-size:11px;line-height:1.7;display:block; }
+.focus-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line); }
+.focus-item { padding:28px 28px 30px 0; }
+.focus-item + .focus-item { border-left:1px solid var(--line);padding-left:28px; }
+.focus-number { color:var(--accent-soft);font:800 11px Manrope;letter-spacing:1.5px; }
+.focus-item h3 { margin:20px 0 9px;font:700 18px Manrope; }
+.focus-item p { margin:0;color:var(--muted);font-size:13px;line-height:1.85; }
+.product-section { display:grid;grid-template-columns:.72fr 1.28fr;gap:70px;align-items:center; }
+.product-mark {
+  min-height:360px;background:var(--surface);border:1px solid var(--line);
+  display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;
+}
+.product-mark::before {
+  content:"";position:absolute;width:300px;height:300px;border:1px solid var(--line);border-radius:50%;
+}
+.product-mark::after {
+  content:"";position:absolute;width:230px;height:230px;border:1px solid var(--deep-steel);border-radius:50%;
+}
+.product-mark-text {
+  position:relative;z-index:1;width:116px;height:116px;border:1px solid var(--misty-steel);
+  border-radius:50%;display:grid;place-items:center;color:var(--accent-soft);
+  font:800 27px Manrope;background:var(--page);
+}
+.product-status {
+  display:inline-flex;align-items:center;gap:8px;padding:7px 10px;
+  background:var(--surface);border-left:3px solid var(--accent);
+  color:var(--accent-soft);font-size:10px;font-weight:800;letter-spacing:1px;text-transform:uppercase;
+}
+.product-copy h2 { font:800 clamp(34px,4.5vw,52px)/1.08 Manrope;letter-spacing:-2px;margin:15px 0 17px; }
+.product-copy p { color:var(--muted);font-size:14px;line-height:1.95;max-width:680px; }
+.benefit-list { display:grid;grid-template-columns:1fr 1fr;gap:14px 25px;margin:25px 0 30px; }
+.benefit { display:flex;gap:10px;align-items:flex-start;font-size:12px;color:var(--muted);line-height:1.65; }
+.benefit-mark { color:var(--accent-soft);font-size:15px;line-height:1.2; }
+.benefit b { color:var(--text);display:block;margin-bottom:2px; }
+.experience-grid { display:grid;grid-template-columns:repeat(4,1fr);gap:14px; }
+.experience-item { border-top:2px solid var(--accent);padding:20px 14px 0 0; }
+.experience-step { color:var(--accent-soft);font:800 10px Manrope;letter-spacing:1.3px; }
+.experience-item h3 { font:700 15px Manrope;margin:14px 0 7px; }
+.experience-item p { color:var(--muted);font-size:11px;line-height:1.8;margin:0; }
+.approach-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:24px; }
+.approach-item { padding-top:20px;border-top:1px solid var(--line); }
+.approach-item h3 { margin:0 0 9px;font:700 17px Manrope; }
+.approach-item p { margin:0;color:var(--muted);font-size:12px;line-height:1.85; }
+.status-panel {
+  border:1px solid var(--line);padding:28px 30px;
+  display:flex;align-items:center;justify-content:space-between;gap:28px;
+  background:var(--surface);
+}
+.status-panel h3 { margin:0 0 8px;font:700 20px Manrope; }
+.status-panel p { margin:0;max-width:730px;color:var(--muted);font-size:13px;line-height:1.85; }
+.status-label { flex:0 0 auto;color:var(--accent-soft);font:800 10px Manrope;letter-spacing:1.3px;text-transform:uppercase; }
+.contact-block { display:grid;grid-template-columns:1fr auto;gap:35px;align-items:center;padding:35px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line); }
+.contact-block h2 { font:800 clamp(30px,4.1vw,46px)/1.12 Manrope;letter-spacing:-1.5px;margin:0 0 13px; }
+.contact-block p { color:var(--muted);font-size:13px;line-height:1.8;margin:0;max-width:640px; }
+.contact-email { display:inline-block;margin-top:15px!important;color:var(--text)!important;font-weight:700; }
+.footer { padding:34px 0 42px; }
+.footer-inner { display:flex;justify-content:space-between;align-items:center;gap:25px; }
+.footer-brand img { width:190px;height:auto; }
+.footer-brand .logo-light { display:block; }.footer-brand .logo-dark { display:none; }
+html[data-theme="light"] .footer-brand .logo-light { display:none; }
+html[data-theme="light"] .footer-brand .logo-dark { display:block; }
+.footer-meta { color:var(--muted);font-size:10px;line-height:1.8;margin-top:10px; }
+.social-links { display:flex;gap:18px;flex-wrap:wrap; }
+.social-links a { color:var(--muted);font-size:11px;transition:color .2s; }
+.social-links a:hover { color:var(--accent); }
+.footer-note { color:var(--muted);font-size:10px;margin-top:10px; }
+.reveal { opacity:0;transform:translateY(18px);transition:opacity .65s ease,transform .65s ease; }
+.reveal.in-view { opacity:1;transform:translateY(0); }
+.delay-1 { transition-delay:.08s; }.delay-2 { transition-delay:.16s; }
+@keyframes gentle-float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-9px)} }
+
+/* RESPONSIVE REFINEMENT — phone, tablet, laptop and large desktop */
+.container,
+.nav,
+.hero-grid,
+.about-layout,
+.product-section,
+.focus-grid,
+.experience-grid,
+.approach-grid,
+.contact-block,
+.footer-inner {
+  min-width: 0;
+}
+.hero-grid > *,
+.about-layout > *,
+.product-section > *,
+.focus-grid > *,
+.experience-grid > *,
+.approach-grid > *,
+.contact-block > * {
+  min-width: 0;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+p, h1, h2, h3, span, a {
+  overflow-wrap: break-word;
+}
+section[id] {
+  scroll-margin-top: 94px;
+}
+.button {
+  white-space: normal;
+  text-align: center;
+}
+.nav-tools {
+  flex: 0 0 auto;
+}
+.brand {
+  min-width: 0;
+}
+.nav-links {
+  flex: 1 1 auto;
+  justify-content: flex-end;
+  white-space: nowrap;
+}
+.mobile-nav {
+  width: min(100% - 48px, 1160px);
+  margin: 0 auto;
+  padding: 6px 18px 14px;
+  background: var(--header);
+  border: 1px solid var(--line);
+  border-top: 0;
+  box-shadow: var(--shadow);
+}
+.mobile-nav a {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+}
+.theme-toggle:focus-visible,
+.menu-toggle:focus-visible,
+.button:focus-visible,
+.nav-links a:focus-visible,
+.mobile-nav a:focus-visible,
+.social-links a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* Tablet and compact laptop */
+@media (max-width: 980px) {
+  .nav {
+    min-height: 72px;
+    gap: 16px;
+  }
+  .brand img {
+    width: 188px;
+  }
+  .nav-links {
+    display: none;
+  }
+  .menu-toggle {
+    display: inline-flex;
+  }
+  .mobile-nav {
+    display: none;
+  }
+  .hero {
+    padding: 82px 0 78px;
+  }
+  .hero-grid {
+    grid-template-columns: minmax(0, 1.1fr) minmax(260px, .9fr);
+    gap: 30px;
+  }
+  .hero h1 {
+    font-size: clamp(43px, 5.4vw, 62px);
+    letter-spacing: -2.7px;
+  }
+  .hero-art {
+    min-height: 330px;
+  }
+  .art-ring {
+    width: min(29vw, 270px);
+    height: min(29vw, 270px);
+  }
+  .art-center {
+    width: clamp(138px, 17vw, 158px);
+    height: clamp(138px, 17vw, 158px);
+  }
+  .about-layout {
+    gap: 34px;
+  }
+  .product-section {
+    gap: 34px;
+  }
+  .product-mark {
+    min-height: 320px;
+  }
+  .experience-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: 28px;
+  }
+  .approach-grid {
+    gap: 18px;
+  }
+}
+
+/* Tablet portrait and large phones */
+@media (max-width: 820px) {
+  .container {
+    width: min(100% - 40px, 680px);
+  }
+  .hero {
+    padding: 68px 0 70px;
+  }
+  .hero-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+  }
+  .hero-copy {
+    max-width: 650px;
+  }
+  .hero-art {
+    min-height: 300px;
+    border-left: 0;
+    border-top: 1px solid var(--line);
+  }
+  .art-ring {
+    width: 250px;
+    height: 250px;
+  }
+  .about-layout,
+  .product-section {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+  }
+  .about-lead {
+    max-width: 650px;
+  }
+  .product-mark {
+    min-height: 270px;
+  }
+  .focus-grid {
+    grid-template-columns: 1fr;
+  }
+  .focus-item,
+  .focus-item + .focus-item {
+    padding: 22px 0;
+    border-left: 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .focus-item:last-child {
+    border-bottom: 0;
+  }
+  .approach-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .approach-item {
+    padding-top: 18px;
+  }
+  .status-panel {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 16px;
+  }
+}
+
+/* Phones */
+@media (max-width: 600px) {
+  .container {
+    width: calc(100% - 36px);
+  }
+  .nav {
+    min-height: 64px;
+    gap: 10px;
+  }
+  .brand img {
+    width: clamp(145px, 43vw, 178px);
+  }
+  .theme-toggle,
+  .menu-toggle {
+    height: 40px;
+    min-width: 40px;
+  }
+  .mobile-nav {
+    width: calc(100% - 36px);
+    padding: 5px 15px 12px;
+  }
+  .hero {
+    padding: 62px 0 58px;
+  }
+  .hero h1 {
+    font-size: clamp(39px, 10.4vw, 50px);
+    line-height: 1.06;
+    letter-spacing: -2.1px;
+    margin: 19px 0 16px;
+  }
+  .hero-copy {
+    font-size: 14px;
+    line-height: 1.8;
+  }
+  .hero-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-top: 24px;
+  }
+  .hero-actions .button {
+    width: 100%;
+    min-height: 47px;
+  }
+  .hero-note {
+    font-size: 10px;
+    line-height: 1.7;
+  }
+  .hero-art {
+    min-height: 270px;
+  }
+  .art-index {
+    top: 12px;
+    right: 0;
+    font-size: 9px;
+  }
+  .art-ring {
+    width: 218px;
+    height: 218px;
+  }
+  .art-center {
+    width: 136px;
+    height: 136px;
+  }
+  .art-monogram {
+    width: 58px;
+    height: 58px;
+    font-size: 18px;
+  }
+  .art-caption {
+    bottom: 10px;
+    font-size: 8px;
+    letter-spacing: 1px;
+  }
+  .section {
+    padding: 62px 0;
+  }
+  .section-head {
+    margin-bottom: 29px;
+  }
+  .section-head h2 {
+    font-size: clamp(29px, 8vw, 36px);
+    line-height: 1.13;
+    letter-spacing: -1.15px;
+    margin: 12px 0;
+  }
+  .section-head p {
+    font-size: 13px;
+    line-height: 1.8;
+  }
+  .about-lead {
+    font-size: 19px;
+    line-height: 1.5;
+  }
+  .about-text {
+    font-size: 13px;
+    line-height: 1.85;
+  }
+  .value-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: 18px;
+    margin-top: 30px;
+  }
+  .value-item {
+    padding: 14px 12px 0 0;
+    border-right: 1px solid var(--line);
+  }
+  .value-item:nth-child(2n) {
+    border-right: 0;
+    padding-right: 0;
+    padding-left: 12px;
+  }
+  .value-item b {
+    font-size: 13px;
+  }
+  .value-item span {
+    font-size: 10px;
+  }
+  .focus-item,
+  .focus-item + .focus-item {
+    padding: 19px 0;
+  }
+  .focus-item h3 {
+    margin: 12px 0 6px;
+    font-size: 16px;
+  }
+  .focus-item p {
+    font-size: 12px;
+    line-height: 1.75;
+  }
+  .product-section {
+    gap: 24px;
+  }
+  .product-mark {
+    min-height: 235px;
+  }
+  .product-mark::before {
+    width: 210px;
+    height: 210px;
+  }
+  .product-mark::after {
+    width: 165px;
+    height: 165px;
+  }
+  .product-mark-text {
+    width: 88px;
+    height: 88px;
+    font-size: 22px;
+  }
+  .product-copy h2 {
+    font-size: clamp(32px, 8.8vw, 39px);
+    letter-spacing: -1.3px;
+    margin: 13px 0;
+  }
+  .product-copy p {
+    font-size: 13px;
+    line-height: 1.85;
+  }
+  .benefit-list {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin: 21px 0 25px;
+  }
+  .benefit {
+    font-size: 11px;
+  }
+  .experience-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 24px 16px;
+  }
+  .experience-item {
+    padding: 15px 8px 0 0;
+  }
+  .experience-item h3 {
+    font-size: 13px;
+    line-height: 1.4;
+    margin: 11px 0 6px;
+  }
+  .experience-item p {
+    font-size: 10px;
+    line-height: 1.7;
+  }
+  .approach-grid {
+    gap: 19px;
+  }
+  .approach-item h3 {
+    font-size: 15px;
+    margin-bottom: 6px;
+  }
+  .approach-item p {
+    font-size: 11px;
+  }
+  .status-panel {
+    padding: 22px 19px;
+  }
+  .status-panel h3 {
+    font-size: 17px;
+    line-height: 1.4;
+  }
+  .status-panel p {
+    font-size: 11px;
+    line-height: 1.8;
+  }
+  .contact-block {
+    padding: 27px 0;
+    gap: 20px;
+  }
+  .contact-block h2 {
+    font-size: clamp(29px, 8vw, 35px);
+    letter-spacing: -1px;
+  }
+  .contact-block p {
+    font-size: 12px;
+  }
+  .contact-block .button {
+    width: 100%;
+  }
+  .footer {
+    padding: 28px 0 34px;
+  }
+  .footer-brand img {
+    width: 168px;
+  }
+}
+
+/* Narrow phones */
+@media (max-width: 380px) {
+  .container {
+    width: calc(100% - 30px);
+  }
+  .hero h1 {
+    font-size: 37px;
+    letter-spacing: -1.8px;
+  }
+  .brand img {
+    width: 140px;
+  }
+  .nav {
+    min-height: 60px;
+  }
+  .theme-toggle,
+  .menu-toggle {
+    height: 38px;
+    min-width: 38px;
+  }
+  .value-row,
+  .experience-grid {
+    grid-template-columns: 1fr;
+  }
+  .value-item,
+  .value-item:nth-child(2n) {
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+    padding: 12px 0;
+  }
+  .value-item:last-child {
+    border-bottom: 0;
+  }
+  .experience-item {
+    padding-top: 13px;
+  }
+  .art-ring {
+    width: 195px;
+    height: 195px;
+  }
+}
+@media (min-width: 981px) {
+  .mobile-nav {
+    display: none !important;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+
+/* Final layout corrections for values row and contact block */
+.value-row {
+  grid-template-columns:repeat(4,minmax(0,1fr));
+}
+.value-item {
+  min-width:0;
+  padding:20px 22px 0;
+  border-right:1px solid var(--line);
+}
+.value-item:first-child {
+  padding-left:0;
+}
+.value-item:last-child {
+  padding-right:0;
+  border-right:0;
+}
+.value-item b,
+.value-item span {
+  overflow-wrap:normal;
+  word-break:normal;
+}
+
+.contact-block {
+  grid-template-columns:minmax(0,1fr) auto;
+  align-items:center;
+}
+.contact-block > div {
+  min-width:0;
+  max-width:100%;
+}
+.contact-block h2 {
+  max-width:100%;
+  overflow-wrap:normal;
+  word-break:normal;
+  hyphens:none;
+}
+.contact-block p {
+  max-width:640px;
+  overflow-wrap:normal;
+  word-break:normal;
+}
+.contact-block .button {
+  justify-self:end;
+}
+
+@media (max-width:980px) {
+  .nav {
+    flex-wrap:nowrap;
+  }
+  .brand {
+    flex:1 1 auto;
+  }
+}
+@media (max-width:820px) {
+  .value-row {
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    row-gap:20px;
+  }
+  .value-item {
+    padding:15px 18px 0;
+  }
+  .value-item:nth-child(odd) {
+    padding-left:0;
+    border-right:1px solid var(--line);
+  }
+  .value-item:nth-child(even) {
+    padding-right:0;
+    border-right:0;
+  }
+  .contact-block {
+    grid-template-columns:minmax(0,1fr);
+    gap:20px;
+    align-items:start;
+  }
+  .contact-block > div {
+    width:100%;
+  }
+  .contact-block h2 {
+    width:100%;
+    max-width:18ch;
+    font-size:clamp(30px,5.3vw,42px);
+    line-height:1.13;
+    letter-spacing:-1px;
+  }
+  .contact-block p {
+    max-width:62ch;
+  }
+  .contact-block .button {
+    justify-self:start;
+    width:auto;
+    max-width:100%;
+  }
+}
+@media (max-width:600px) {
+  .value-row {
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    column-gap:0;
+    row-gap:17px;
+    margin-top:28px;
+  }
+  .value-item {
+    min-width:0;
+    padding:13px 13px 0;
+  }
+  .value-item:nth-child(odd) {
+    padding-left:0;
+  }
+  .value-item:nth-child(even) {
+    padding-right:0;
+    padding-left:13px;
+  }
+  .value-item b {
+    font-size:12px;
+  }
+  .value-item span {
+    font-size:10px;
+    line-height:1.6;
+  }
+  .contact-block {
+    display:grid;
+    grid-template-columns:minmax(0,1fr);
+    gap:18px;
+    padding:27px 0;
+  }
+  .contact-block > div {
+    width:100%;
+    min-width:0;
+  }
+  .contact-block h2 {
+    display:block;
+    width:100%;
+    max-width:100%;
+    font-size:clamp(29px,8vw,36px);
+    line-height:1.14;
+    letter-spacing:-1px;
+    overflow-wrap:break-word;
+    word-break:normal;
+    hyphens:none;
+  }
+  .contact-block p {
+    width:100%;
+    max-width:100%;
+    font-size:12px;
+    line-height:1.8;
+  }
+  .contact-block .button {
+    display:inline-flex;
+    width:100%;
+    justify-self:stretch;
+    white-space:normal;
+    margin:0;
+  }
+  .contact-email {
+    font-size:clamp(14px,4.1vw,17px);
+    overflow-wrap:anywhere;
+    word-break:normal;
+  }
+}
+@media (max-width:360px) {
+  .container {
+    width:calc(100% - 28px);
+  }
+  .contact-block h2 {
+    font-size:29px;
+    letter-spacing:-.8px;
+  }
+  .value-item span {
+    font-size:9px;
+  }
+}
+
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="topline"></div>
+<header class="site-header">
+  <div class="container nav">
+    <a class="brand" href="#home" aria-label="MyShieldLabs home">
+      <img class="logo-light" src="assets/myshieldlabs-logo-ice-white.png" alt="MyShieldLabs">
+      <img class="logo-dark" src="assets/myshieldlabs-logo-obsidian.png" alt="MyShieldLabs">
+    </a>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="#about">About</a><a href="#focus">Our Focus</a><a href="#product">HerSafeWalk</a><a href="#approach">Our Approach</a><a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-tools">
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to light mode" title="Toggle theme">
+        <svg id="themeIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/></svg>
+      </button>
+      <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open navigation" aria-expanded="false">☰</button>
+    </div>
+  </div>
+  <nav class="container mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+    <a href="#about">About</a><a href="#focus">Our Focus</a><a href="#product">HerSafeWalk</a><a href="#approach">Our Approach</a><a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<main id="main">
+  <section class="hero" id="home">
+    <div class="container hero-grid">
+      <div class="reveal">
+        <span class="kicker">A personal safety company</span>
+        <h1>Redefining the future of <span class="accent">Personal Safety.</span></h1>
+        <p class="hero-copy">MyShieldLabs is an early-stage company focused on making personal safety feel more accessible, thoughtful and connected. We are starting with a simple belief: people deserve practical ways to communicate when they feel safe, uneasy or need help.</p>
+        <div class="hero-actions">
+          <a class="button" href="#product">Discover HerSafeWalk <span aria-hidden="true">↗</span></a>
+          <a class="button button-outline" href="#about">Get to know us</a>
+        </div>
+        <p class="hero-note"><span>●</span> People first. Safety always. Built with purpose.</p>
+      </div>
+      <div class="hero-art reveal" aria-label="MyShieldLabs product concept graphic">
+        <span class="art-index">MYSHIELDLABS / 01</span>
+        <div class="art-ring"></div>
+        <div class="art-center"><div class="art-monogram">HS</div></div>
+        <span class="art-caption">Personal safety, thoughtfully reimagined</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="about">
+    <div class="container">
+      <div class="section-head reveal"><span class="section-no">01 / About MyShieldLabs</span><h2>Safety should feel like a right — <span class="accent">not a privilege.</span></h2><p>We are an early-stage personal safety company. We listen to everyday concerns and explore ways technology can support people with practical, approachable safety experiences.</p></div>
+      <div class="about-layout">
+        <p class="about-lead reveal">Our starting point is simple: understand people first, then create solutions around what matters to them.</p>
+        <p class="about-text reveal delay-1">We believe personal safety products should be considerate, easy to understand and designed for real life. Our work is guided by empathy, user confidence and a commitment to communicate honestly as our ideas develop.</p>
+      </div>
+      <div class="value-row">
+        <div class="value-item reveal"><b>Empathy</b><span>Understand real everyday experiences.</span></div>
+        <div class="value-item reveal delay-1"><b>Empowerment</b><span>Keep people in control of their choices.</span></div>
+        <div class="value-item reveal delay-2"><b>Trust</b><span>Be clear about what is ready and what is not.</span></div>
+        <div class="value-item reveal"><b>Accessibility</b><span>Make the experience approachable.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="focus">
+    <div class="container">
+      <div class="section-head reveal"><span class="section-no">02 / Our focus</span><h2>Designed around people. <span class="accent">Driven by purpose.</span></h2><p>Our focus is on customer needs — making personal safety experiences more discreet, clear and supportive.</p></div>
+      <div class="focus-grid">
+        <article class="focus-item reveal"><span class="focus-number">01</span><h3>Personal safety</h3><p>Thoughtful products that can help people communicate when they feel uncomfortable or need assistance.</p></article>
+        <article class="focus-item reveal delay-1"><span class="focus-number">02</span><h3>Trusted connections</h3><p>Making it easier to bring trusted people into a safety moment, with the user's needs at the centre.</p></article>
+        <article class="focus-item reveal delay-2"><span class="focus-number">03</span><h3>Simple by design</h3><p>Approachable interactions intended to fit naturally into everyday life.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="product">
+    <div class="container product-section">
+      <div class="product-mark reveal" aria-hidden="true"><div class="product-mark-text">HS</div></div>
+      <div class="product-copy reveal delay-1">
+        <span class="section-no">03 / Our first product</span>
+        <h2>Meet <span class="accent">HerSafeWalk.</span></h2>
+        <span class="product-status">Currently in development</span>
+        <p>HerSafeWalk is a personal safety wearable being developed with women's everyday experiences in mind. It is being shaped around a simple idea: a discreet way to communicate a safety status and request help, supported by a companion phone experience.</p>
+        <div class="benefit-list">
+          <div class="benefit"><span class="benefit-mark">✦</span><span><b>A quick way to signal</b>Designed around a simple, easy-to-reach interaction.</span></div>
+          <div class="benefit"><span class="benefit-mark">✦</span><span><b>Everyday check-ins</b>Concepts for communicating when things feel okay or uncomfortable.</span></div>
+          <div class="benefit"><span class="benefit-mark">✦</span><span><b>Discreet to carry</b>A wearable form intended to fit into daily routines.</span></div>
+          <div class="benefit"><span class="benefit-mark">✦</span><span><b>Clear feedback</b>Designed to make interactions feel understandable.</span></div>
+        </div>
+        <a class="button" href="#development">Follow the product journey <span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="experience">
+    <div class="container">
+      <div class="section-head reveal"><span class="section-no">04 / The intended experience</span><h2>A simple way to communicate. <span class="accent">A little more reassurance.</span></h2><p>HerSafeWalk is being designed around a clear customer experience. The final product experience will be confirmed as development progresses.</p></div>
+      <div class="experience-grid">
+        <article class="experience-item reveal"><span class="experience-step">01 / WEAR</span><h3>Carry it naturally</h3><p>A discreet wearable concept intended to fit into everyday routines.</p></article>
+        <article class="experience-item reveal delay-1"><span class="experience-step">02 / CHECK IN</span><h3>Share how you feel</h3><p>Simple safety states designed to communicate when things feel okay or uncomfortable.</p></article>
+        <article class="experience-item reveal delay-2"><span class="experience-step">03 / SIGNAL</span><h3>Request attention</h3><p>An SOS interaction designed to help the wearer signal an urgent need for help.</p></article>
+        <article class="experience-item reveal"><span class="experience-step">04 / CONNECT</span><h3>Stay connected</h3><p>A companion experience is being developed to support communication with trusted people.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="approach">
+    <div class="container">
+      <div class="section-head reveal"><span class="section-no">05 / Our approach</span><h2>Thoughtful products start with <span class="accent">people.</span></h2><p>We are an early-stage team. Our priority is to understand everyday needs, shape a useful experience and develop responsibly.</p></div>
+      <div class="approach-grid">
+        <article class="approach-item reveal"><h3>Understand first</h3><p>Listen to the people a safety product is meant to serve, and take their everyday concerns seriously.</p></article>
+        <article class="approach-item reveal delay-1"><h3>Keep it simple</h3><p>Make the experience clear, considerate and easier to understand, especially in stressful moments.</p></article>
+        <article class="approach-item reveal delay-2"><h3>Build trust</h3><p>Learn from feedback and communicate honestly about what is ready and what is still being developed.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="development">
+    <div class="container">
+      <div class="status-panel reveal">
+        <div><h3>We’re working towards the first version of HerSafeWalk.</h3><p>HerSafeWalk is currently in development and is not yet available for purchase. We are refining the product experience and working towards validation. Features, availability and final product details may evolve as development progresses.</p></div>
+        <span class="status-label">● In development</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="contact">
+    <div class="container">
+      <div class="contact-block reveal">
+        <div><span class="section-no">06 / Get in touch</span><h2>Let’s make personal safety <span class="accent">matter more.</span></h2><p>Interested in MyShieldLabs, exploring a collaboration, or following the development of HerSafeWalk? We’d be glad to hear from you.</p><a class="contact-email" href="mailto:myshieldlabs@gmail.com">myshieldlabs@gmail.com</a></div>
+        <a class="button" href="mailto:myshieldlabs@gmail.com?subject=Hello%20MyShieldLabs">Contact MyShieldLabs <span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="#home" aria-label="MyShieldLabs home">
+        <img class="logo-light" src="assets/myshieldlabs-logo-ice-white.png" alt="MyShieldLabs">
+        <img class="logo-dark" src="assets/myshieldlabs-logo-obsidian.png" alt="MyShieldLabs">
+      </a>
+      <div class="footer-meta">© <span id="year"></span> MyShieldLabs. All rights reserved.<br>Redefining the future of Personal Safety.</div>
+    </div>
+    <div>
+      <div class="social-links">
+        <a href="#" data-social="LinkedIn">LinkedIn ↗</a>
+        <a href="#" data-social="Instagram">Instagram ↗</a>
+        <a href="#" data-social="YouTube">YouTube ↗</a>
+      </div>
+      <div class="footer-note">Social channels coming soon.</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const html = document.documentElement;
+  const toggle = document.getElementById('themeToggle');
+  const icon = document.getElementById('themeIcon');
+  const menuButton = document.getElementById('menuToggle');
+  const mobileNav = document.getElementById('mobileNav');
+
+  const savedTheme = localStorage.getItem('msl-theme');
+  if (savedTheme === 'light' || savedTheme === 'dark') {
+    html.dataset.theme = savedTheme;
+  }
+
+  function renderThemeControl() {
+    const isLight = html.dataset.theme === 'light';
+    toggle.setAttribute('aria-label', isLight ? 'Switch to dark mode' : 'Switch to light mode');
+    icon.innerHTML = isLight
+      ? '<path d="M20.5 15.5A8.5 8.5 0 0 1 8.5 3.5 8.5 8.5 0 1 0 20.5 15.5Z"/>'
+      : '<circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/>';
+    document.querySelector('meta[name="theme-color"]').content = isLight ? '#F0F4F8' : '#04080D';
+  }
+
+  toggle.addEventListener('click', () => {
+    html.dataset.theme = html.dataset.theme === 'light' ? 'dark' : 'light';
+    localStorage.setItem('msl-theme', html.dataset.theme);
+    renderThemeControl();
+  });
+  renderThemeControl();
+
+  menuButton.addEventListener('click', () => {
+    const expanded = menuButton.getAttribute('aria-expanded') === 'true';
+    menuButton.setAttribute('aria-expanded', String(!expanded));
+    menuButton.setAttribute('aria-label', expanded ? 'Open navigation' : 'Close navigation');
+    mobileNav.style.display = expanded ? 'none' : 'block';
+    menuButton.textContent = expanded ? '☰' : '×';
+  });
+  mobileNav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+    mobileNav.style.display = 'none';
+    menuButton.setAttribute('aria-expanded', 'false');
+    menuButton.setAttribute('aria-label', 'Open navigation');
+    menuButton.textContent = '☰';
+  }));
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 980) {
+      mobileNav.style.display = 'none';
+      menuButton.setAttribute('aria-expanded', 'false');
+      menuButton.setAttribute('aria-label', 'Open navigation');
+      menuButton.textContent = '☰';
+    }
+  });
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 980) {
+      mobileNav.style.display = 'none';
+      menuButton.setAttribute('aria-expanded', 'false');
+      menuButton.setAttribute('aria-label', 'Open navigation');
+      menuButton.textContent = '☰';
+    }
+  });
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+  document.querySelectorAll('[data-social]').forEach(link => link.addEventListener('click', event => {
+    event.preventDefault();
+    alert('Add the official ' + link.dataset.social + ' URL in index.html before publishing.');
+  }));
+})();
+</script>
+</body>
+</html>
